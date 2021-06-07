@@ -1,15 +1,15 @@
 {
-  "moduleName": "AnimeFenix",
-  "moduleInitials": "AF",
-  "moduleDesc": "Module for AnimeFenixe",
-  "developer": "Zond & Letters",
-  "moduleID": "3979976996",
-  "moduleImage": "https://www.animefenix.com/themes/animefenix-frans185/images/AveFenix.png",
-  "moduleVersion": "1.2",
+  "moduleName": "JKAnime",
+  "moduleInitials": "JKAM",
+  "moduleDesc": "Module For Jkanime Website",
+  "developer": "Uknown",
+  "moduleID": "0",
+  "moduleImage": "https://cdn.jkanime.net/logo_jk.png",
+  "moduleVersion": "1.6",
   "moduleLenguage": "ESP",
   "moduleHasVideos": "true",
   "randomizeUserAgent": "false",
-  "baseURL": "https://www.animefenix.com/",
+  "baseURL": "https://jkanime.net/",
   "mainPageLeftTitle": "Last Episodes",
   "mainPageRightTitle": "Last Animes",
   "blackListed": [
@@ -17,7 +17,7 @@
   ],
   "mainPage": [
     {
-      "request": "https://www.animefenix.com/",
+      "request": "https://jkanime.net/",
       "method": "get",
       "headers": [
         {
@@ -31,7 +31,7 @@
         }
       ],
       "loadJavascript": "false",
-      "javaScript": "function Header(key, value) {this.key = key;this.value = value;}function ExtraInfo(value) {this.value = value;}function Output(lastEpisodes, lastAnimes) {this.lastEpisodes = lastEpisodes;this.lastAnimes = lastAnimes;}function LastAnimes(moduleID, image, link, title) {this.moduleID = moduleID;this.image = image;this.link = link;this.title = title;}function LastEpisodes(moduleID, image, link, title, episode) {this.moduleID = moduleID;this.image = image;this.link = link;this.title = title;this.episode = episode;}function MainPageObject(request, headers, method, extraInfo, loadJavascript, javaScript, output) {this.request = request;this.headers = headers;this.method = method;this.extraInfo = extraInfo;this.loadJavascript = loadJavascript;this.javaScript = javaScript;this.output = output;}var savedData = document.getElementById('katsu-final-data');var parsedJson = JSON.parse(savedData.innerHTML);var moduleID = '68521364';var headers = [new Header('', '')];var extraInfo = [new ExtraInfo('')];var mainPageObject;var output;var lastAnimes = [];var lastEpisodes = [];var doc = document.createElement('template');doc.innerHTML = document.querySelector('script').innerText;var episodes = doc.content.querySelectorAll('.capitulos-grid > .item');for (var i = 0; i < episodes.length; i++) {var episode = episodes[i];var title = episode.querySelector('a').title;var image = episode.querySelector('img').src;var ep = episode.querySelector('.overepisode.has-text-weight-semibold.is-size-7').innerText;var link = episode.querySelector('a').href;var episodeObj = new LastEpisodes(moduleID, image, link, title, ep);lastEpisodes.push(episodeObj);}var Animes = doc.content.querySelectorAll('.list-series > .serie-card');for (var i = 0; i < Animes.length; i++) {var anime = Animes[i];var link = anime.querySelector('a').href;var title = anime.querySelector('a').title;var image = anime.querySelector('img').src;var animeObj = new LastAnimes(moduleID, image, link, title);lastAnimes.push(animeObj);}while (lastEpisodes.length % 2 != 0) {lastEpisodes.push(lastEpisodes[0]);}while (lastAnimes.length % 3 != 0) {lastAnimes.push(lastAnimes[0]);}output = new Output(lastEpisodes, lastAnimes);mainPageObject = new MainPageObject('', headers, '', extraInfo, '', '', output);var finalJson = JSON.stringify(mainPageObject);savedData.innerHTML = finalJson;",
+      "javaScript": "function Header(key, value) {this.key = key;this.value = value;}function ExtraInfo(value) {this.value = value;}function Output(lastEpisodes, lastAnimes) {this.lastEpisodes = lastEpisodes;this.lastAnimes = lastAnimes;}function LastAnimes(moduleID, image, link, title) {this.moduleID = moduleID;this.image = image;this.link = link;this.title = title;}function LastEpisodes(moduleID, image, link, title, episode) {this.moduleID = moduleID;this.image = image;this.link = link;this.title = title;this.episode = episode;}function MainPageObject(request, headers, method, extraInfo, loadJavascript, javaScript, output) {this.request = request;this.headers = headers;this.method = method;this.extraInfo = extraInfo;this.loadJavascript = loadJavascript;this.javaScript = javaScript;this.output = output;}var moduleID = '0';var mainPageObject;var output;var headers = [];var lastAnimes = [];var lastEpisodes = [];var extraInfo = [];var savedData = document.getElementById('katsu-final-data');var eps = document.querySelectorAll('.maximoaltura > a');for (var i = 0; i < eps.length; ++i) {var link = eps[i].href;var image = eps[i].querySelector('.anime__sidebar__comment__item__pic.listadohome > img').src;var title = eps[i].querySelector('h5').innerHTML;var episode = eps[i].querySelector('h6').innerText.replace(/\\n/g, '');var episode = new LastEpisodes(moduleID, image, link, title, episode);lastEpisodes.push(episode);}var animes = document.querySelectorAll('.trending__anime > .row > .col-lg-3.col-md-6.col-sm-6');for (var i = 0; i < animes.length; ++i) {var link = animes[i].querySelector('a').href;var image = animes[i].querySelector('.anime__item__pic.set-bg').getAttribute('data-setbg');var title = animes[i].querySelector('h5 > a').innerText;var anime = new LastAnimes(moduleID, image, link, title);lastAnimes.push(anime);}while (lastAnimes.length % 3 != 0) {lastAnimes.push(lastAnimes[0]);}output = new Output(lastEpisodes, lastAnimes);headers.push(new Header('', ''));extraInfo.push(new ExtraInfo(''));mainPageObject = new MainPageObject('', headers, '', extraInfo, '', '', output);var finalJson = JSON.stringify(mainPageObject);savedData.innerHTML = finalJson;",
       "output": {
         "lastEpisodes": [
           {
@@ -55,7 +55,7 @@
   ],
   "search": [
     {
-      "request": "https://www.animefenix.com/animes?q=<searched>&page<page>",
+      "request": "https://jkanime.net/buscar/<searched>/<page>/",
       "method": "get",
       "headers": [
         {
@@ -63,14 +63,14 @@
           "value": ""
         }
       ],
-      "separator": "+",
+      "separator": "_",
       "extraInfo": [
         {
           "value": ""
         }
       ],
       "loadJavascript": "false",
-      "javaScript": "function Header(key, value) {this.key = key;this.value = value;}function ExtraInfo(value) {this.value = value;}function Output(moduleID, image, link, title, type, voice, stars) {this.moduleID = moduleID;this.image = image;this.link = link;this.title = title;this.type = type;this.voice = voice;this.stars = stars;}function SearchObject(request, method, headers, separator, extraInfo, loadJavascript, javaScript, output) {this.request = request;this.method = method;this.headers = headers;this.separator = separator;this.extraInfo = extraInfo;this.loadJavascript = loadJavascript;this.javaScript = javaScript;this.output = output;}var savedData = document.getElementById('katsu-final-data');var parsedJson = JSON.parse(savedData.innerHTML);var moduleID = '3979976996';var headers = [new Header('', '')];var extraInfo = [new ExtraInfo('')];var searchPageObject;var output = [];var doc = document.createElement('template');doc.innerHTML = document.querySelector('script').innerText;var Animes = doc.content.querySelectorAll('.list-series > .serie-card');for (var i = 0; i < Animes.length; i++) {var anime = Animes[i];var title = anime.querySelector('a').title;var link = anime.querySelector('a').href;var image = anime.querySelector('img').src;var type = 'Anime';var voice = 'SUB';var star = '*****';var searchObj = new Output(moduleID, image, link, title, type, voice, star);output.push(searchObj);}searchPageObject = new SearchObject('', '', headers, '+', extraInfo, '', '', output);var finalJson = JSON.stringify(searchPageObject);savedData.innerHTML = finalJson;",
+      "javaScript": "function Header(key, value) {this.key = key;this.value = value;}function ExtraInfo(value) {this.value = value;}function Output(moduleID, image, link, title, type, voice, stars) {this.moduleID = moduleID;this.image = image;this.link = link;this.title = title;this.type = type;this.voice = voice;this.stars = stars;}function SearchObject(request, method, headers, separator, extraInfo, loadJavascript, javaScript, output) {this.request = request;this.method = method;this.headers = headers;this.separator = separator;this.extraInfo = extraInfo;this.loadJavascript = loadJavascript;this.javaScript = javaScript;this.output = output;}var moduleID = '0';var searchPageObject;var output = [];var headers = [];var extraInfo = [];var savedData = document.getElementById('katsu-final-data');var animes = document.querySelectorAll('.row > .col-lg-2.col-md-6.col-sm-6');for (var i = 0; i < animes.length; ++i) {var link = animes[i].querySelector('a').href;var image = animes[i].querySelector('.anime__item__pic.set-bg').getAttribute('data-setbg');var title = animes[i].querySelector('h5 > a').innerText; var type = animes[i].querySelector('.anime').innerText;var anime = new Output(moduleID, image, link, title, type, 'SUB', '★★★★★');output.push(anime);}headers.push(new Header('', ''));extraInfo.push(new ExtraInfo(''));searchPageObject = new SearchObject('', '', headers, '_', extraInfo, '', '', output);var finalJson = JSON.stringify(searchPageObject);savedData.innerHTML = finalJson;",
       "output": [
         {
           "moduleID": "0",
@@ -100,7 +100,7 @@
         }
       ],
       "loadJavascript": "false",
-      "javaScript": "function Header(key, value) {this.key = key;this.value = value;}function ExtraInfo(value) {this.value = value;}function Output(moduleID, image, link, title, description, genres, type, status, episodes) {this.moduleID = moduleID;this.image = image;this.link = link;this.title = title;this.description = description;this.genres = genres;this.type = type;this.status = status;this.episodes = episodes;}function Episodes(link, moduleID, isDecodable) {this.link = link;this.moduleID = moduleID;this.isDecodable = isDecodable;}function InfoObject(request, method, headers, extraInfo, loadJavascript, javaScript, output) {this.request = request;this.method = method;this.headers = headers;this.extraInfo = extraInfo;this.loadJavascript = loadJavascript;this.javaScript = javaScript;this.output = output;}var savedData = document.getElementById('katsu-final-data');var parsedJson = JSON.parse(savedData.innerHTML);var moduleID = '3979976996';var headers = [new Header('', '')];var extraInfo = [new ExtraInfo('')];var infoObject;var output;var episodes = [];var type = 'Anime';var doc = document.createElement('template');doc.innerHTML = document.querySelector('script').innerText;var status = doc.content.querySelector('.column > a').innerText;var genres = [];var desc = doc.content.querySelector('.column > p').innerText;var image = doc.content.querySelector('figure > img').src;var title = doc.content.querySelector('.column > h1').innerText;var Dgenres = doc.content.querySelectorAll('p > a');for (let i = 0; i < Dgenres.length; i++) {genres.push(Dgenres[i].innerText);}var Depisodes = doc.content.querySelectorAll('.anime-page__episode-list.is-size-6 > li');for (let i = 0; i < Depisodes.length; i++) {episodes.push(new Episodes(Depisodes[i].querySelector('a').href, moduleID, 'false'));}episodes.reverse();output = new Output(moduleID, image, parsedJson.request, title, desc, genres, type, status, episodes);infoObject = new InfoObject('', 'get', headers, extraInfo, '', '', output);var finalJson = JSON.stringify(infoObject);savedData.innerHTML = finalJson;",
+      "javaScript": "function Header(key, value) {this.key = key;this.value = value;}function ExtraInfo(value) {this.value = value;}function Output(moduleID, image, link, title, description, genres, type, status, episodes) {this.moduleID = moduleID;this.image = image;this.link = link;this.title = title;this.description = description;this.genres = genres;this.type = type;this.status = status;this.episodes = episodes;}function Episodes(link, moduleID, isDecodable) {this.link = link;this.moduleID = moduleID;this.isDecodable = isDecodable;}function InfoObject(request, method, headers, extraInfo, loadJavascript, javaScript, output) {this.request = request;this.method = method;this.headers = headers;this.extraInfo = extraInfo;this.loadJavascript = loadJavascript;this.javaScript = javaScript;this.output = output;}var savedData = document.getElementById('katsu-final-data');var moduleID = '0';var infoObject;var output;var headers = [new Header('', '')];var extraInfo = [new ExtraInfo('')];var episodes = [];var type = document.querySelectorAll('.col-lg-6.col-md-6 > ul > li')[0].innerText.replace('Tipo: ', '');var status = document.querySelectorAll('.col-lg-6.col-md-6 > ul > li')[6].querySelector('.enemision').innerText;var genres = [];var parsedJson = JSON.parse(savedData.innerHTML);var title = document.querySelector('.anime__details__title > h3').innerText;var image = document.querySelector('.anime__details__pic.set-bg').getAttribute('data-setbg');var gen = document.querySelectorAll('.col-lg-6.col-md-6 > ul > li')[1].querySelectorAll('a');for (var x = 0; x < gen.length; x++) {genres.push(gen[x].innerText);}var idAnime = document.querySelectorAll('p')[3].innerText.split('/')[2] + '/';var numPag = document.querySelectorAll('.anime__pagination > a');var desc = document.querySelector('.anime__details__text > p').innerText;var num = 0;for(var x = 1; x <= numPag.length; x++){ var request = new XMLHttpRequest(); request.open('get', 'https://jkanime.net/ajax/pagination_episodes/' + idAnime + x + '/', false); request.send(null); var jsonn = JSON.parse(request.response); for(var i = 1; i <= jsonn.length; i++){ num ++; var link = parsedJson.request + num + '/'; episodes.push(new Episodes(link, moduleID, 'false')); } request.abort();}output = new Output('0', image, parsedJson.request, title, desc, genres, type, status, episodes);infoObject = new InfoObject('', 'get', headers, extraInfo, '', '', output);var finalJson = JSON.stringify(infoObject);savedData.innerHTML = finalJson;",
       "output": {
         "moduleID": "0",
         "image": "",
@@ -137,13 +137,13 @@
           "value": ""
         }
       ],
-      "loadJavascript": "false",
-      "javaScript": "function Header(key, value) {this.key = key;this.value = value;}function ExtraInfo(value) {this.value = value;}function Output(link, linkIdentifier, moduleID, isDecodable, headers) {this.link = link;this.linkIdentifier = linkIdentifier;this.moduleID = moduleID;this.isDecodable = isDecodable;this.headers = headers;}function EpisodeObject(request, method, headers, extraInfo, loadJavascript, javaScript, output) {this.request = request;this.method = method;this.headers = headers;this.extraInfo = extraInfo;this.loadJavascript = loadJavascript;this.javaScript = javaScript;this.output = output;}var savedData = document.getElementById('katsu-final-data');var parsedJson = JSON.parse(savedData.innerHTML);var moduleID = '3979976996';var headers = [new Header('', '')];var extraInfo = [new ExtraInfo('')];var episodeObject;var output = [];var doc = document.createElement('template');doc.innerHTML = document.querySelector('script').innerText;let scripts = doc.content.querySelectorAll('p');for (var x = 0; x < scripts.length; x++) {var script = scripts[x].innerHTML;if (script.includes('tabsArray')) {let links = script.split('\"');for (var y = 0; y < links.length; y++) {let possibleLink = links[y];if (possibleLink.includes('http') || possibleLink.includes('../')) {console.log(possibleLink);episodeObj = new Output(links[y], '', moduleID, 'false', headers);output.push(episodeObj);}}}}episodeObject = new EpisodeObject('', '', headers, extraInfo, '', '', output);var finalJson = JSON.stringify(episodeObject);savedData.innerHTML = finalJson;",
+      "loadJavascript": "true",
+      "javaScript": "function Header(key, value) { this.key = key; this.value = value;}function ExtraInfo(value) { this.value = value;}function Output(link, linkIdentifier, moduleID, isDecodable, headers) { this.link = link; this.linkIdentifier = linkIdentifier; this.moduleID = moduleID; this.isDecodable = isDecodable; this.headers = headers;}function EpisodeObject(request, method, headers, extraInfo, loadJavascript, javaScript, output) { this.request = request; this.method = method; this.headers = headers; this.extraInfo = extraInfo; this.loadJavascript = loadJavascript; this.javaScript = javaScript; this.output = output;}var moduleID = '0';var episodeObject;var output = [];var headers = [];var extraInfo = [];var videoHeaders = [new Header('', '')];var savedData = document.getElementById('katsu-final-data');for (var x = 0; x < video.length; x++) { var tempDiv = document.createElement('div'); tempDiv.innerHTML = video[x]; var link = tempDiv.firstChild.src; if (link != null) { var newLink = link.split('?u='); if (newLink.length > 1) {newLink = newLink[1];} else {newLink = newLink[0];} if (link.includes('fembed')) { output.push(new Output('https://www.fembed.com/v/' + newLink, '', '0', 'false', videoHeaders)); } else if(link.includes('jkvmixdrop')) { output.push(new Output('https://mixdrop.co/e/' + newLink, '', '0', 'false', videoHeaders)); } else if (link.includes('okru')) { output.push(new Output('https://ok.ru/videoembed/' + newLink, '', '0', 'false', videoHeaders)); } else { output.push(new Output(link, '', '0', 'false', videoHeaders)); } }}headers.push(new Header('', ''));extraInfo.push(new ExtraInfo(''));episodeObject = new EpisodeObject('', '', headers, extraInfo, '', '', output);var finalJson = JSON.stringify(episodeObject);savedData.innerHTML = finalJson;",
       "output": [
         {
           "link": "",
-          "linkIdentifier": "",
           "moduleID": "",
+          "linkIdentifier": "",
           "isDecodable": "false",
           "headers": [
             {
