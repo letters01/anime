@@ -12,6 +12,6 @@
     <script type="text/javascript">
     var savedData = document.getElementById('katsu-final-data');
     
-    savedData.innerHTML = document.querySelector('.hola').innerHTML;</script>
+    savedData.innerHTML = document.querySelector('.hola').innerText;</script>
 </body>
 </html>
