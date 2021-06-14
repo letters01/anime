@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="katsu-final-data"></div>
+    <div id="katsu-final-data"></div>
     <div class="hola">holaaaa</div>
     <script type="text/javascript">
     var savedData = document.getElementById('katsu-final-data');
